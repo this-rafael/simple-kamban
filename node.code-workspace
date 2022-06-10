@@ -1,0 +1,217 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "extensions": {
+    "recommendations": [
+      "pkief.material-icon-theme",
+      "ghgofort.neon-vommit",
+      "adpyke.codesnap",
+      "usernamehw.errorlens",
+      "dbaeumer.vscode-eslint",
+      "github.copilot",
+      "eamodio.gitlens",
+      "graphql.vscode-graphql",
+      "esbenp.prettier-vscode",
+      "prisma.prisma",
+      "ms-vscode-remote.remote-containers",
+      "ms-vscode-remote.remote-ssh",
+      "ms-vscode-remote.remote-ssh-edit",
+      "ms-vscode-remote.remote-wsl",
+      "mutantdino.resourcemonitor",
+      "gruntfuggly.todo-tree",
+      "vivaxy.vscode-conventional-commits",
+      "oouo-diogo-perdigao.docthis",
+      "github.copilot-nightly",
+      "chrisbibby.hide-node-modules",
+      "alefragnani.project-manager",
+      "caiqichang.vscode-translation"
+    ]
+  },
+  "settings": {
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+
+    "files.autoSave": "afterDelay",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "workbench.iconTheme": "material-icon-theme",
+
+    "material-icon-theme.folders.associations": {
+      "features": "plugin",
+      "usecases": "serverless",
+      "entities": "class",
+      "domain": "app",
+      "main": "client",
+      "protocols": "include",
+      "view": "views",
+      "infra": "packages",
+      "adapter": "job",
+      "external": "public",
+      "datasources": "database",
+      "interface": "functions",
+      "envs": "config",
+      "modules": "core",
+      "connectors": "log",
+      "decorators": "meta",
+      "exceptions": "error",
+      "handlers": "flow",
+      "strategies": "interface",
+      "enums": "template",
+      "http": "api",
+      "rest": "other",
+      "nestjs": "app",
+      "singletons": "environment"
+    },
+    "material-icon-theme.files.associations": {
+      "*.g.dart": "lock",
+      "*.connector.ts": "gemini",
+      "*.exception.ts": "mathematica",
+      "*.mock.ts": "typescript-def",
+      "*.model.ts": "opa",
+      "*.protocol.ts": "snyk",
+      "*.strategy.ts": "stryker",
+      "*.usecase.ts": "godot"
+    },
+    "material-icon-theme.activeIconPack": "nest",
+
+    "editor.fontLigatures": true,
+    "explorer.compactFolders": false,
+    "liveshare.allowGuestDebugControl": true,
+    "liveshare.allowInvites": "all",
+    "liveshare.alwaysFollowHost": true,
+    "liveshare.diagnosticMode": true,
+    "liveshare.languages.allowGuestCommandControl": true,
+    "liveshare.allowGuestTaskControl": true,
+    "[dart]": {
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
+      "editor.rulers": [80],
+      "editor.selectionHighlight": false,
+      "editor.suggest.snippetsPreventQuickSuggestions": false,
+      "editor.suggestSelection": "first",
+      "editor.tabCompletion": "onlySnippets",
+      "editor.wordBasedSuggestions": false
+    },
+    "liveshare.diagnosticLogging": true,
+    "liveshare.featureSet": "insiders",
+    "liveshare.publishWorkspaceInfo": true,
+
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.tabSize": 2,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.preferences.importModuleSpecifier": "relative",
+    "editor.foldingImportsByDefault": true,
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "[sql]": {
+      "editor.defaultFormatter": "ms-ossdata.vscode-postgresql"
+    },
+    "[prisma]": {
+      "editor.defaultFormatter": "Prisma.prisma"
+    },
+    "editor.minimap.enabled": false,
+    "editor.codeLensFontFamily": "Fira Code",
+
+    "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+    "terminal.integrated.shellArgs.windows": [
+      "-ExecutionPolicy",
+      "Unrestricted",
+      "-NoLogo"
+    ],
+    "terminal.integrated.persistentSessionReviveProcess": "never",
+    "terminal.integrated.enablePersistentSessions": false,
+
+    "breadcrumbs.enabled": true,
+    "editor.renderWhitespace": "none",
+    "editor.renderControlCharacters": false,
+    "window.menuBarVisibility": "toggle",
+    "terminal.explorerKind": "external",
+
+    "terminal.external.linuxExec": "terminator",
+    "bracketPairColorizer.depreciation-notice": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.formatOnSave": true,
+    "dart.flutterCreateOffline": true,
+    "tabnine.experimentalAutoImports": true,
+    "editor.fontFamily": "Fira Code",
+    "dart.openDevTools": "flutter",
+    "dart.devToolsPort": 33366,
+
+    // Duration in milliseconds for the cursor to travel from one character position (or line) to the next.
+    "smoothtype.duration": 80,
+    // Ask before restarting after a command is successfully run.
+    "smoothtype.autoReload": false,
+    "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font Mono",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "explorer.confirmDragAndDrop": false,
+    "workbench.sideBar.location": "right",
+    "workbench.colorTheme": "Trybe Theme -  Dark",
+    "prettier.endOfLine": "auto",
+    "prettier.requireConfig": true,
+
+    // Configuração do translations
+    // Default source language for translation.
+    "translation.source-language": "pt",
+
+    // Default target language for translation.
+    "translation.target-language": "en",
+
+    // Configuração do Prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "yaml.schemas": {
+      "file:///c%3A/Users/Windows.lite/.vscode-insiders/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    },
+    "atlascode.jira.jqlList": [
+      {
+        "id": "cad2ac13-4676-4532-8606-9dd0441b560b",
+        "enabled": true,
+        "name": "My simple_kambam Issues",
+        "query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
+        "siteId": "7d07a345-da8e-4cd0-9e22-facfb2dce8e6",
+        "monitor": true
+      }
+    ],
+    "git.autofetch": true,
+    "redhat.telemetry.enabled": false,
+    "[elixir]": {
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "JakeBecker.elixir-ls"
+    },
+    "elixirLinter.useStrict": true,
+    "codesnap.transparentBackground": true,
+    "codesnap.roundedCorners": true,
+    "codesnap.shutterAction": "copy",
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[css]": {
+      "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "workbench.startupEditor": "none",
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/Thumbs.db": true,
+      "**/node_modules": true
+    },
+
+    // document this
+    "docthis.includeDescriptionTag": true,
+    "docthis.includeAuthorTag": true,
+    "docthis.authorName": "Rafael S Pereira",
+    "docthis.includeDateTag": true
+  }
+}
