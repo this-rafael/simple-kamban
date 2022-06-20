@@ -69,3 +69,5 @@ export const Generate = {
     return [strategy, ...injections]
   },
 }
+
+export const { useValue, mockedProvider, strategyProvider, provider } = Generate

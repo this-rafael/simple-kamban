@@ -1,10 +1,11 @@
 import { Controller, Injectable } from '@nestjs/common'
-import { MessagePattern, Payload } from '@nestjs/microservices'
+
 import { KafkaTopics } from '../../../../../../libs/handler-kafka/src'
 import { GetKafkaMessageValue } from '../../../../../../libs/nestjs-helpers/src'
 
 import { UpdateOrCreateUserMessage } from '../../../../../../libs/handler-kafka/src/messages/update-or-create-user.message'
 import { UsersService } from '../../../adapter/service/users.service'
+import { MessagePattern, Payload } from '@nestjs/microservices'
 
 @Controller()
 export class UsersController {
