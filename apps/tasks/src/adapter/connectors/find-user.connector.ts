@@ -28,7 +28,7 @@ export class FindUserByNicknameConnector implements FindUserByNicknameProtocol {
         response.push({
           id: Number(user.id),
           nickname: user.nickname,
-          externalId: user.externalid,
+          externalId: user.external_id,
         })
       }
 

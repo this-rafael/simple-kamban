@@ -53,7 +53,6 @@ export class BussinessRuleException<T = unknown, L = unknown> implements Error {
   constructor({
     code,
     calledWith,
-    name,
     throwedIn,
     stack,
     httpStatus,
@@ -61,7 +60,6 @@ export class BussinessRuleException<T = unknown, L = unknown> implements Error {
   }: {
     code: ErrorCodes
     calledWith?: T
-    name: BussinessErrorsNames
     throwedIn: L
     stack?: string
     httpStatus: ClientErrorHttpStatus
@@ -69,9 +67,9 @@ export class BussinessRuleException<T = unknown, L = unknown> implements Error {
   }) {
     this.code = code
     this.calledWith = calledWith
-    this.name = name as unknown as string
+    this.name = `Error: ${code};`
 
-    this.message = `${name}. Throwed in class called: ${
+    this.message = `Error: ${code}. Throwed in class called: ${
       (throwedIn as unknown as { name: string }).name
     }`
 

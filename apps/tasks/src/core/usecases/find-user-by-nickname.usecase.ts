@@ -1,3 +1,8 @@
+import {
+  BussinessRuleException,
+  ClientErrorHttpStatus,
+} from '../../../../../libs/api-exceptions/src/bussiness-rule-exception/bussiness-rule.exception'
+import { ErrorCodes } from '../../../../../libs/api-exceptions/src/errors.codes'
 import { Decorators } from '../../../../../libs/nestjs-helpers/src'
 import { UserModel } from '../models/user.model'
 import { FindUserByNicknameProtocol } from '../protocols/find-user.protocol'
@@ -19,9 +24,13 @@ export class FindUserByNicknameUsecase implements FindUserStrategy<string> {
         nickname: value,
         take,
       })
-    } catch (error) {
-      console.log(error)
-      throw error
+    } catch {
+      throw new BussinessRuleException({
+        throwedIn: FindUserByNicknameUsecase,
+        calledWith: { value, take },
+        code: ErrorCodes.CANNON_FIND_USER_ERROR,
+        httpStatus: ClientErrorHttpStatus.BAD_REQUEST,
+      })
     }
   }
 }

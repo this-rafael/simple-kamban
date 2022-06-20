@@ -1,11 +1,15 @@
 import { NestFactory } from '@nestjs/core'
 import { configEnvironment } from '../../../libs/shared-env/src'
-import { TasksModule } from './tasks.module'
+import { TasksModule } from './infra/modules/main.module'
 
 async function bootstrap(): Promise<void> {
+  console.log('bbbbbbbbbbb')
+
   const app = await NestFactory.create(TasksModule)
-  await app.listen(3000)
+  console.log('aaaaaaaaaaaaa')
+
+  await app.listen(14000)
 }
 
-configEnvironment()
-bootstrap()
+//configEnvironment()
+bootstrap().then(a => console.log('funcionou'))

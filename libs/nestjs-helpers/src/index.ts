@@ -25,6 +25,12 @@ export class StrategyAnalyzer<L = any> {
   }
 }
 
+export class StrategyType<T> {
+  token: string
+  factory: (...types: T[]) => StrategyAnalyzer<T>
+  injections: Type<T>[]
+}
+
 export const Generate = {
   useValue<T>(subClass: T): { useValue: T } {
     return {
@@ -49,25 +55,95 @@ export const Generate = {
     }
   },
 
-  strategyProvider<T>(
-    {
-      token,
-      factory,
-    }: {
-      token: string
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      factory: (...types: T[]) => StrategyAnalyzer<T>
-    },
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ...injections: Type<T>[]
-  ): Provider<unknown>[] {
+  feature<A, B extends A, C, D extends C>(
+    strategy: Type<A> | InjectionToken,
+    usecase: Type<B>,
+    protocol: Type<C> | InjectionToken,
+    connector: Type<D>,
+  ): Provider[] {
+    return [
+      Generate.provider<A, B>(strategy, usecase),
+      Generate.provider<C, D>(protocol, connector),
+    ]
+  },
+
+  strategyFeature<A, C, B extends A, D extends C>({
+    strategy,
+    protocols,
+  }: {
+    strategy: {
+      strategyBuilder: StrategyType<A> | Type<A> | InjectionToken
+      usecaseBuidler?: Type<B>
+    }
+    protocols?: {
+      protocolBuilder: StrategyType<C> | Type<C> | InjectionToken
+      connectorBuilder?: Type<D>
+    }[]
+  }): Provider[] {
+    let strategyProvider: Provider<unknown>[] = []
+    let protocolProvider: Provider<unknown>[] = []
+
+    const strategyLike = (strategy.strategyBuilder as StrategyType<A>)?.token
+
+    if (strategyLike) {
+      strategyProvider = Generate.strategyProvider<A>(
+        strategy.strategyBuilder as StrategyType<A>,
+      )
+    } else {
+      ok(strategy.usecaseBuidler)
+      strategyProvider = [
+        Generate.provider(
+          strategy.strategyBuilder as Type<A> | InjectionToken,
+          strategy.usecaseBuidler,
+        ),
+      ]
+    }
+    if (protocols) {
+      for (const protocol of protocols) {
+        const protocolLike = (protocol.protocolBuilder as StrategyType<C>)
+          ?.token
+        if (protocolLike) {
+          protocolProvider.push(
+            ...Generate.strategyProvider<C>(
+              protocol.protocolBuilder as StrategyType<C>,
+            ),
+          )
+        } else {
+          ok(protocol.connectorBuilder)
+          protocolProvider.push(
+            Generate.provider(
+              protocol.protocolBuilder as Type<C> | InjectionToken,
+              protocol.connectorBuilder,
+            ),
+          )
+        }
+      }
+    }
+
+    return [...strategyProvider, ...protocolProvider]
+  },
+
+  strategyProvider<T>({
+    token,
+    factory,
+    injections,
+  }: StrategyType<T>): Provider<unknown>[] {
+    const inject = injections ?? []
     const strategy = {
       provide: token,
-      inject: injections,
+      inject,
       useFactory: factory,
     }
-    return [strategy, ...injections]
+
+    return [strategy, ...inject]
   },
 }
 
-export const { useValue, mockedProvider, strategyProvider, provider } = Generate
+export const {
+  useValue,
+  mockedProvider,
+  strategyProvider,
+  provider,
+  feature,
+  strategyFeature,
+} = Generate

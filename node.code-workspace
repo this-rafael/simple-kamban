@@ -145,11 +145,11 @@
     "smoothtype.duration": 80,
     // Ask before restarting after a command is successfully run.
     "smoothtype.autoReload": false,
-    "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font Mono",
+
     "liveServer.settings.donotShowInfoMsg": true,
     "explorer.confirmDragAndDrop": false,
-    "workbench.sideBar.location": "right",
-    "workbench.colorTheme": "Trybe Theme -  Dark",
+    "workbench.sideBar.location": "left",
+    "workbench.colorTheme": "Neon Vommit",
     "prettier.endOfLine": "auto",
     "prettier.requireConfig": true,
 
